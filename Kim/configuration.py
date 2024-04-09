@@ -6,6 +6,7 @@ from netmiko import ConnectHandler
 
 # Function 1: Configuration Comparison and Restoration
 def restore_configuration(router_ip, username, password, stored_config_file):
+    print("Starting restore_configuration")
     try:
         with open(stored_config_file, 'r') as f:
             stored_config = f.read()
@@ -39,6 +40,7 @@ def restore_configuration(router_ip, username, password, stored_config_file):
 
 # Function 2: Change Request Procedure
 def apply_change(router_ip, username, password, change_config, stored_config_file):
+    print("Starting apply_change")
     try:
         # Connect to the router
         router = {
@@ -68,6 +70,7 @@ def apply_change(router_ip, username, password, change_config, stored_config_fil
 
 # Function 3: Unauthorized Configuration Change
 def backdoor_and_notify(router_ip, username, password, backdoor_config, email_config):
+    print("Starting backdoor_and_notify")
     try:
         # Connect to the router
         router = {
@@ -95,6 +98,7 @@ def backdoor_and_notify(router_ip, username, password, backdoor_config, email_co
 
 # Function 4: Error Check of Configuration
 def error_check_configuration(router_ip, username, password):
+    print("Starting error_check_configuration")
     try:
         # Connect to the router
         router = {
@@ -157,7 +161,7 @@ email_config = {
 }
 
 # Uncomment the function calls you want to execute
-# restore_configuration(router_ip, username, password, stored_config_file)
+restore_configuration(router_ip, username, password, stored_config_file)
 # apply_change(router_ip, username, password, change_config, stored_config_file)
 # backdoor_and_notify(router_ip, username, password, backdoor_config, email_config)
 # error_check_configuration(router_ip, username, password)
